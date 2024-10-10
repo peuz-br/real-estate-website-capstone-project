@@ -2,6 +2,8 @@
 
 ## EstateExplorer
 
+![EstateExplorer Logo](assets/logo.png)
+
 Hello, and welcome to my capstone project. In this project, I will be showcasing all the skills and competencies I've learned over the long two years of dedication. The focus of the project is to present a complete real estate website with all the necessary functions for an excellent user experience. Here, you will have the possibility to:
 - search for properties, filtering your search by location, price, size, among other filters to enhance the customer experience.
 
