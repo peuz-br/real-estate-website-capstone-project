@@ -1,5 +1,10 @@
 # real-estate-website-capstone-project
-This project is a fully functional real estate website. It allows users to browse property listings, filter by location, price, and other criteria, and view detailed information on each property. The project includes user authentication, property management, and an integrated map feature for visualizing property locations.
+Hello, and welcome to my capstone project. In this project, I will be showcasing all the skills and competencies I've learned over the long two years of dedication. The focus of the project is to present a complete real estate website with all the necessary functions for an excellent user experience. Here, you will have the possibility to:
+- search for properties, filtering your search by location, price, size, among other filters to enhance the customer experience.
+
+- other vital functionalities such as user authentication, property management (for sellers and buyers), and even a feature where you can find the property you're looking for on the map!
+
+ Quite an experience, isn't it? So, let's get started!
 
 ## Project Structure
 
