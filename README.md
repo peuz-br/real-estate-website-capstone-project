@@ -32,6 +32,19 @@ As you can see,  we need an integrated solution that brings all of this together
 
 - **User Auth**: Registration and login function using e-mail/password | role-based access for buyers/renters/sellers/agents/admins | password reset function
 
+- **Property Listings**: Search bar with filter function | detail property page | property management for sellers/agents
+
+- **Interactive Map**: display property locations | search directly through the map
+
+- **Inquires & Contact**: forms for interested buyers/renters to contact the listing agent directly
+
+- **Property Comparison Tool**: Compare properties features side-by-side
+
+- **Admin Dashboard**: approve/reject property listings | manage user accounts | website analytics (basic)
+
+- **Additional Feautes (This is a challenge - might not be added!)**: payment integration | reviews and ratings | internal messaging system | 
+
+
 
 ## Project Structure
 
