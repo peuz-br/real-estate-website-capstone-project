@@ -14,11 +14,23 @@ Hello, and welcome to my capstone project. In this project, I will be showcasing
 
 ## Technical Stack used
 
-Front-end:
+**Front-end:/** */
+
 - **React/** for building the interactive UI */
 - **Simple CSS/** for styling */
 - **Mapbox/** for the interactive map feature */
 - **Fetch API//** for requests to the backend */
+
+**Back-end:/** */
+
+- **Node.js/** for API requests */
+- **RESTful APIs/** for the management of property listings, user and inquiries */
+- **MySQL/** to store data */
+- **Simple database-stored user auth/** for first auth and security */
+
+**Deployment/** */
+
+- **AWS/** */
 
 
 
