@@ -1,6 +1,6 @@
 # real-estate-website-capstone-project
 
-## EstateExplorer - The answer to your estate problems!
+## EstateExplorer
 
 Hello, and welcome to my capstone project. In this project, I will be showcasing all the skills and competencies I've learned over the long two years of dedication. The focus of the project is to present a complete real estate website with all the necessary functions for an excellent user experience. Here, you will have the possibility to:
 - search for properties, filtering your search by location, price, size, among other filters to enhance the customer experience.
@@ -11,7 +11,27 @@ Hello, and welcome to my capstone project. In this project, I will be showcasing
 
 ## Looking for the BEST real estate Platform? Check it out:
 
-- The real estate market is almost always missing a user-friendly platform where buyers, sellers, renters, and real estate agents can all connect at the same time. As a buyer, whenever you search for properties on one of the millions of real estate websites, you often run into small problems while looking for your dream home—like inadequate filters, incorrect price listings, and even houses that are no longer available. Sellers and real estate agents often struggle with managing their listed properties and communicating with potential clients. Today, we need an integrated solution that brings all of this together on one screen! And that's exactly what we're aiming to solve with this project!
+- The real estate market is almost always missing a user-friendly platform where buyers, sellers, renters, and real estate agents can all connect at the same time. As a buyer, whenever you search for properties on one of the millions of real estate websites, you often run into small problems while looking for your dream home—like inadequate filters, incorrect price listings, and even houses that are no longer available. Sellers and real estate agents often struggle with managing their listed properties and communicating with potential clients. There are a few questions you can find yourself recieving from the end-user of your website, for example:
+
+
+- **As a buyer/renter, I want to search for properties using specific filters so that I can find homes that meet my criteria.**
+
+- **As a buyer/renter, I want to view property locations on an interactive map so that I can assess the neighborhood and proximity to amenities.**
+
+- **As a seller/agent, I want to create and manage my property listings so that I can effectively market properties to potential buyers/renters.**
+
+- **As an admin, I want to approve or reject new property listings to ensure all content on the site meets our standards.**
+
+- **As a user, I want to securely log in and manage my profile so that my personal information is protected.**
+
+
+As you can see,  we need an integrated solution that brings all of this together on one screen! And that's exactly what we're aiming to solve with this project!
+
+
+## Project Features
+
+- **User Auth**: Registration and login function using e-mail/password | role-based access for buyers/renters/sellers/agents/admins | password reset function
+
 
 ## Project Structure
 
