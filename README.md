@@ -15,16 +15,30 @@ Hello, and welcome to my capstone project. In this project, I will be showcasing
 
 - The real estate market is almost always missing a user-friendly platform where buyers, sellers, renters, and real estate agents can all connect at the same time. As a buyer, whenever you search for properties on one of the millions of real estate websites, you often run into small problems while looking for your dream home—like inadequate filters, incorrect price listings, and even houses that are no longer available. Sellers and real estate agents often struggle with managing their listed properties and communicating with potential clients. There are a few questions you can find yourself recieving from the end-user of your website, for example:
 
+## User Stories
 
 - **As a buyer/renter, I want to search for properties using specific filters so that I can find homes that meet my criteria.**
 
+ - Users can filter properties by location, price range, property type, number of bedrooms/bathrooms, and amenities.
+- Users receive a list of properties that match all selected filters.
+- The system displays a message if no properties match the criteria.
+
 - **As a buyer/renter, I want to view property locations on an interactive map so that I can assess the neighborhood and proximity to amenities.**
+
+- Users can use the interactive map to check for amenities around the property
+- Users can search throught the interactive map
 
 - **As a seller/agent, I want to create and manage my property listings so that I can effectively market properties to potential buyers/renters.**
 
+- Users can manage property listings through a dashboard
+
 - **As an admin, I want to approve or reject new property listings to ensure all content on the site meets our standards.**
 
+-accept/reject property inquiries from sellers/agents and organize them accordingly.
+
 - **As a user, I want to securely log in and manage my profile so that my personal information is protected.**
+
+- Users upon creation of the account will be recieving a hash password from bcrypt and JWT Tokens for better security.
 
 
 As you can see,  we need an integrated solution that brings all of this together on one screen! And that's exactly what we're aiming to solve with this project!
