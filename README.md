@@ -91,6 +91,6 @@ As you can see,  we need an integrated solution that brings all of this together
 ## Documentation
 
 
-- [(ERD)](docs/ERD.md)
+- [(ERD, DML, DDL)](docs/ERD.md)
 
 
