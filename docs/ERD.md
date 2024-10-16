@@ -38,6 +38,16 @@ Data structure for the website
 - `property_id`: FK that links to **Properties**
 
 
+# DML Explained
+
+## Insert
+- insert new user
+- insert new property
+- insert new inquiry
+- insert favorite
+
+
+
 
 
 
