@@ -20,11 +20,16 @@ Data structure for the website
 - `email`: Must be unique for each user.
 - `role`: type of user (buyer, seller, agent, admin)
 
-## Propeties
+## Properties
 - **stores properties listed by the user**
-- - `property_id`: PK for properties.
+- `property_id`: PK for properties.
 - `user_id`: FK that links to the **Users** table.
 
+## Inquiries
+- **tracks inquiries made by buyers about properties**
+- `inquiry_id`: PK.
+- `user_id`: FK that links to **Users** (the buyer).
+- `property_id`: FK that links to  **Properties**
 
 
 
