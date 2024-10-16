@@ -52,13 +52,20 @@ Data structure for the website
 - select all inquiries for a property
 - select favorites for a user
 
+## Update
+- update property details
+- update user role
 
-
+## Delete
+- delete a user
+- delete a property
+- delete an inquiry
+- delete a favorite
 
 
 
 
 ## Documentation
 
- - Website: [https://dbdiagram.io](https://dbdiagram.io)
-  - Documentation: [dbdiagram Documentation](https://docs.dbdiagram.io)
+ - ERD Website: [https://dbdiagram.io](https://dbdiagram.io)
+  -ERD Documentation: [dbdiagram Documentation](https://docs.dbdiagram.io)
