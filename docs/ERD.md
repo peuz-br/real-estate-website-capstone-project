@@ -31,6 +31,12 @@ Data structure for the website
 - `user_id`: FK that links to **Users** (the buyer).
 - `property_id`: FK that links to  **Properties**
 
+## Favorites
+- **intermediate table for M-M relationship**
+- `favorite_id`: PK.
+- `user_id`: FK that links to **Users**
+- `property_id`: FK that links to **Properties**
+
 
 
 
