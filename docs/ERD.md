@@ -1,4 +1,4 @@
-# ERD 
+# Documentation - ERD 
 
 Data structure for the website
 
@@ -11,6 +11,16 @@ Data structure for the website
 - **Properties**: Represents the properties listed on the platform. Each property is linked to a user (seller/agent).
 - **Inquiries**: Represents inquiries made by users (buyers) about properties.
 - **Favorites**: Represents the many-to-many relationship between users and their favorited properties.
+
+# DDL Explained
+
+## Users
+- **stores all the user information**
+- `user_id`: Primary key. Unique for every user.
+- `email`: Must be unique for each user.
+- `role`: type of user (buyer, seller, agent, admin)
+
+
 
 
 ## Documentation
