@@ -46,6 +46,13 @@ Data structure for the website
 - insert new inquiry
 - insert favorite
 
+## Select
+- select all users
+- select all properties
+- select all inquiries for a property
+- select favorites for a user
+
+
 
 
 
