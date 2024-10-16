@@ -16,9 +16,16 @@ Data structure for the website
 
 ## Users
 - **stores all the user information**
-- `user_id`: Primary key. Unique for every user.
+- `user_id`: PK. Unique for every user.
 - `email`: Must be unique for each user.
 - `role`: type of user (buyer, seller, agent, admin)
+
+## Propeties
+- **stores properties listed by the user**
+- - `property_id`: PK for properties.
+- `user_id`: FK that links to the **Users** table.
+
+
 
 
 
