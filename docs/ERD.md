@@ -65,8 +65,11 @@ Data structure for the website
 
 
 
+# - [(API Contract)](docs/APIContract.md)
+
+
 
 ## Documentation
 
- - ERD Website: [https://dbdiagram.io](https://dbdiagram.io)
-  -ERD Documentation: [dbdiagram Documentation](https://docs.dbdiagram.io)
+- ERD Website: [https://dbdiagram.io](https://dbdiagram.io)
+-ERD Documentation: [dbdiagram Documentation](https://docs.dbdiagram.io)
