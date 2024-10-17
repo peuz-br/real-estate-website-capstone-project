@@ -10,4 +10,12 @@
 
 ## Endpoints overview
 
-![Endpoints](endpoints-ow.png)
+![Endpoints](users-endpoints.png)
+
+![Endpoints](property-endpoints.png)
+
+![Endpoints](inquiry-endpoints.png)
+
+![Endpoints](favorites-endpoints.png)
+
+![Endpoints](auth-summary.png)
