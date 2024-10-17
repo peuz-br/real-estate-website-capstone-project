@@ -6,3 +6,8 @@
 ### Base URL
 
 `/api/v1/` : API requests
+
+
+## Endpoints overview
+
+![Endpoints](endpoints-ow.png)
