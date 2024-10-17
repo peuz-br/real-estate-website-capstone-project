@@ -5,6 +5,7 @@ Data structure for the website
 ![ERD](ERDiagram.png)
 
 
+
 ## Intel
 
 - **Users**: Represents the users of the platform. Users can be buyers, sellers, or agents.
