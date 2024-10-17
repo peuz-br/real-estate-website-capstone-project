@@ -1,6 +1,6 @@
 # API Contract
 
-## Definition of endpoints, request/response formats and auth rules
+## Definition of endpoints  and auth rules
 
 
 ### Base URL
@@ -19,3 +19,7 @@
 ![Endpoints](favorites-endpoints.png)
 
 ![Endpoints](auth-summary.png)
+
+## Documentation
+
+Tables: Notion | https://www.notion.so
