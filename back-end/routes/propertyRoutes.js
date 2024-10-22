@@ -4,7 +4,7 @@ const db = require('../db/db'); // Import the MySQL connection
 
 // Fetch
 
-router.get('/:id', (req, res) => {
+router.get('/', (req, res) => {
     const { id } = req.params;
     const sql = 'SELECT * FROM Properties WHERE property_id = ?';
     db.query(sql, [id], (err, result) => {
