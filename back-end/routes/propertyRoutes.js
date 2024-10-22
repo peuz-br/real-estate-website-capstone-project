@@ -5,12 +5,16 @@ const db = require('../db/db'); // Import the MySQL connection
 // Fetch
 
 router.get('/:id', (req, res) => {
-  const sql = 'SELECT * FROM Properties';
-  db.query(sql, (err, results) => {
-    if (err) return res.status(500).json({ error: 'Failed to fetch properties' });
-    res.json(results);
+    const { id } = req.params;
+    const sql = 'SELECT * FROM Properties WHERE property_id = ?';
+    db.query(sql, [id], (err, result) => {
+      if (err) return res.status(500).json({ error: 'Error fetching property' });
+      if (result.length === 0) return res.status(404).json({ error: 'Property not found' });
+      res.json(result[0]);
+    });
   });
-});
+  
+  module.exports = router;
 
 // Create
 
