@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../db/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const authenticateToken = require('../auth');
 
 //fetch
 
@@ -77,5 +78,25 @@ router.post('/login', (req, res) => {
     res.json({ token, message: 'Login successful' });
   });
 });
+
+
+// delete
+
+router.delete('/:id', authenticateToken, (req, res) => {
+    const { id } = req.params;
+  
+
+    if (req.user.role !== 'admin') {
+      return res.status(403).json({ error: 'Access denied. Only admins can delete users.' });
+    }
+  
+    const sql = 'DELETE FROM Users WHERE user_id = ?';
+    db.query(sql, [id], (err, result) => {
+      if (err) return res.status(500).json({ error: 'Error deleting user' });
+      if (result.affectedRows === 0) return res.status(404).json({ error: 'User not found' });
+      res.json({ message: 'User deleted successfully' });
+    });
+  });
+  
 
 module.exports = router;
