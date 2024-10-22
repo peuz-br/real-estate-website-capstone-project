@@ -10,8 +10,19 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json()); 
 
+// import routes
 
+const userRoutes = require('./routes/userRoutes');
+const propertyRoutes = require('./routes/propertyRoutes');
+const inquiryRoutes = require('./routes/inquiryRoutes');
+const favoriteRoutes = require('./routes/favoriteRoutes');
 
+//user routes
+
+app.use('/users', userRoutes); 
+app.use('/properties', propertyRoutes); 
+app.use('/inquiries', inquiryRoutes); 
+app.use('/favorites', favoriteRoutes);
 
 // basic route test
 app.get('/', (req, res) => {
