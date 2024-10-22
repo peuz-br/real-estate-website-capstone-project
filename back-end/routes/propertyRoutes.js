@@ -4,7 +4,7 @@ const db = require('../db/db'); // Import the MySQL connection
 
 // Fetch
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
   const sql = 'SELECT * FROM Properties';
   db.query(sql, (err, results) => {
     if (err) return res.status(500).json({ error: 'Failed to fetch properties' });
