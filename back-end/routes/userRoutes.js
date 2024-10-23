@@ -5,8 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const authenticateToken = require('../auth');
 
-//fetch
-
+//Fetch 
 router.get('/', (req, res) => {
   const sql = 'SELECT * FROM Users';
   db.query(sql, (err, results) => {
@@ -15,23 +14,27 @@ router.get('/', (req, res) => {
   });
 });
 
+//Register
 router.post('/register', async (req, res) => {
-  const { name, email, password_hash, role } = req.body;
+  const { name, email, password, role } = req.body;
 
-  // validation
-  if (!name || !email || !password_hash || !role) {
+
+  if (!name || !email || !password || !role) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
   try {
     const sqlCheck = 'SELECT * FROM Users WHERE email = ?';
     db.query(sqlCheck, [email], async (err, result) => {
+      if (err) {
+        return res.status(500).json({ error: 'Database error' });
+      }
       if (result.length > 0) {
         return res.status(400).json({ error: 'User with this email already exists' });
       }
 
       const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password_hash, salt);
+      const hashedPassword = await bcrypt.hash(password, salt);
 
       const sql = 'INSERT INTO Users (name, email, password_hash, role) VALUES (?, ?, ?, ?)';
       db.query(sql, [name, email, hashedPassword, role], (err, result) => {
@@ -44,13 +47,11 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// user login
-
+//  login
 router.post('/login', (req, res) => {
-  const { email, password_hash } = req.body;
+  const { email, password } = req.body;
 
- 
-  if (!email || !password_hash) {
+  if (!email || !password) {
     return res.status(400).json({ error: 'Email and password are required' });
   }
 
@@ -62,41 +63,35 @@ router.post('/login', (req, res) => {
 
     const user = results[0];
 
-
-    const isMatch = await bcrypt.compare(password_hash, user.password_hash);
+    const isMatch = await bcrypt.compare(password, user.password_hash);
     if (!isMatch) {
       return res.status(400).json({ error: 'Invalid credentials' });
     }
 
- 
     const token = jwt.sign(
       { user_id: user.user_id, role: user.role },
       process.env.JWT_SECRET,
-      { expiresIn: '1h' } 
+      { expiresIn: '1h' }
     );
 
     res.json({ token, message: 'Login successful' });
   });
 });
 
-
-// delete
-
+// Delete 
 router.delete('/:id', authenticateToken, (req, res) => {
-    const { id } = req.params;
-  
+  const { id } = req.params;
 
-    if (req.user.role !== 'admin') {
-      return res.status(403).json({ error: 'Access denied. Only admins can delete users.' });
-    }
-  
-    const sql = 'DELETE FROM Users WHERE user_id = ?';
-    db.query(sql, [id], (err, result) => {
-      if (err) return res.status(500).json({ error: 'Error deleting user' });
-      if (result.affectedRows === 0) return res.status(404).json({ error: 'User not found' });
-      res.json({ message: 'User deleted successfully' });
-    });
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Access denied. Only admins can delete users.' });
+  }
+
+  const sql = 'DELETE FROM Users WHERE user_id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) return res.status(500).json({ error: 'Error deleting user' });
+    if (result.affectedRows === 0) return res.status(404).json({ error: 'User not found' });
+    res.json({ message: 'User deleted successfully' });
   });
-  
+});
 
 module.exports = router;
