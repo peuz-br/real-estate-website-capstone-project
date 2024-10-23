@@ -31,4 +31,22 @@ export const createProperty = async (propertyData) => {
     }
   };
 
+
+  //delete
+
+  export const deleteProperty = async (propertyId) => {
+    try {
+      const token = localStorage.getItem('token'); 
   
+      const response = await fetch(`${API_URL}/properties/${propertyId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      return await response.json();
+    } catch (error) {
+      console.error('Error deleting property:', error);
+      throw error;
+    }
+  };
