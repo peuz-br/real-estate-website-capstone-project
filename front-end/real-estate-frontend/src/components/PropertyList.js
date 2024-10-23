@@ -1,29 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { fetchProperties } from '../services/propertyService';
+import React from 'react';
 
 const PropertyList = () => {
-  const [properties, setProperties] = useState([]);
-
-  useEffect(() => {
-    const loadProperties = async () => {
-      const data = await fetchProperties();
-      setProperties(data);
-    };
-    loadProperties();
-  }, []);
-
   return (
-    <div>
-      <h2>Property Listings</h2>
-      {properties.map((property) => (
-        <div key={property.property_id}>
-          <h3>{property.title}</h3>
-          <p>{property.description}</p>
-          <p>Price: {property.price}</p>
+    <div className="container text-center my-5">
+      <h2>Featured Properties</h2>
+      <div className="row">
+        <div className="col-md-4" data-aos="fade-left">
+          <div className="card">
+            <img src="/path-to-property1" className="card-img-top" alt="Property 1"/>
+            <div className="card-body">
+              <h5 className="card-title">123 Anywhere St, Any City</h5>
+              <p className="card-text">2 Beds | 2 Baths | 1 Car</p>
+            </div>
+          </div>
         </div>
-      ))}
+    
+      </div>
     </div>
   );
-};
+}
 
 export default PropertyList;
