@@ -19,3 +19,31 @@ export const registerUser = async (userData) => {
   }
 };
 
+// login
+
+export const loginUser = async (loginData) => {
+    try {
+      const response = await fetch(`${API_URL}/users/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginData),
+      });
+      const data = await response.json();
+      
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+      }
+  
+      return data;
+    } catch (error) {
+      console.error('Error logging in user:', error);
+      throw error;
+    }
+  };
+
+  export const getToken = () => {
+    return localStorage.getItem('token');
+  };
+
