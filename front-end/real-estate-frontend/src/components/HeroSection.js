@@ -26,7 +26,7 @@ const HeroSection = ({ showLogin, showSignUp, children }) => {
 
   const typingTimeoutRef = useRef(null);
 
-  // Estados para o formulário de registro
+
   const [registerData, setRegisterData] = useState({
     name: '',
     email: '',
@@ -35,7 +35,7 @@ const HeroSection = ({ showLogin, showSignUp, children }) => {
   });
   const [registerMessage, setRegisterMessage] = useState('');
 
-  // Estados para o formulário de login
+
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
@@ -87,7 +87,7 @@ const HeroSection = ({ showLogin, showSignUp, children }) => {
     }
   };
 
-  // Funções para o formulário de registro
+
   const handleRegisterChange = (e) => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
   };

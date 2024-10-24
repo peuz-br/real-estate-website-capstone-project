@@ -44,8 +44,8 @@
     padding: 40px;
     border-radius: 8px;
     animation: fadeIn 1s forwards;
-    max-width: 400px; /* Opcional: limitar a largura do formulário */
-    width: 100%; /* Garantir que o formulário seja responsivo */
+    max-width: 400px;
+    width: 100%;
   }
   
   .form-container h2 {
@@ -80,7 +80,7 @@
     background-color: #fff;
     color: #333;
     width: 100%;
-    box-sizing: border-box; /* Para incluir o padding na largura total */
+    box-sizing: border-box;
   }
   
   .form-container button {

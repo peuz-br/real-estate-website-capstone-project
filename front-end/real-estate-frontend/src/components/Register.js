@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { registerUser } from '../services/authService';
-import './Register.css'; // Importe o arquivo CSS correspondente
+import './Register.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
-    role: '', // Começa vazio para forçar a seleção
+    role: '',
   });
 
   const [message, setMessage] = useState('');
