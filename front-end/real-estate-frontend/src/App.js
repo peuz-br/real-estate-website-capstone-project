@@ -1,20 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import PropertyList from './components/PropertyList';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 function App() {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
+
+  const handleLoginClick = () => {
+    setShowLogin(true);
+    setShowSignUp(false);
+  };
+
+  const handleSignUpClick = () => {
+    setShowSignUp(true);
+    setShowLogin(false);
+  };
 
   return (
     <div>
-      <HeroSection />
+      <HeroSection showLogin={showLogin} showSignUp={showSignUp} >
+      <Navbar onLoginClick={handleLoginClick} onSignUpClick={handleSignUpClick} />
+      </HeroSection>
       <AboutSection />
       <PropertyList />
+      <Footer />
     </div>
   );
 }

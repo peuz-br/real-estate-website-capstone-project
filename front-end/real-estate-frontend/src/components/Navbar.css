@@ -1,0 +1,36 @@
+.navbar {
+    width: 100%;
+    background: transparent;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  
+  .navbar ul {
+    list-style: none;
+    display: contents;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar ul li {
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .navbar ul li:hover {
+    background-color: white;
+    color: black;
+  }
+  

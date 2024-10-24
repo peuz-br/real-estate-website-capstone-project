@@ -2,7 +2,7 @@ import React from 'react';
 
 const PropertyList = () => {
   return (
-    <div className="container text-center my-5">
+    <div className="property-list container" data-aos="fade-up">
       <h2>Featured Properties</h2>
       <div className="row">
         <div className="col-md-4" data-aos="fade-left">

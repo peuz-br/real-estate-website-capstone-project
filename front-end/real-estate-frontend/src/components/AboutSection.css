@@ -1,0 +1,27 @@
+  .about-section .image-container {
+    background-image: url('../assets/images/background1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    min-height: 790px; 
+    border-radius: 8px;
+  }
+  
+  .about-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-section .btn {
+    background-color: #000000;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .about-section .btn:hover {
+    background-color: #aaaaaa;
+  }
+  
