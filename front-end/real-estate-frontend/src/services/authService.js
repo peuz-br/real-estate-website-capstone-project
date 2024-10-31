@@ -29,28 +29,56 @@ export const registerUser = async (userData) => {
 // login
 
 export const loginUser = async (loginData) => {
+  try {
+    const response = await fetch(`${API_URL}/users/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(loginData),
+    });
+    
+    console.log('Response:', response);
+
+    const data = await response.json();
+    
+    console.log('Data:', data); 
+    
+    if (!response.ok) {
+      const errorMessage = data.message || 'Login failed';
+      throw new Error(errorMessage);
+    }
+
+    return data; 
+  } catch (error) {
+    console.error('Error logging in user:', error);
+    throw error;
+  }
+};
+
+
+  export const updateUser = async (userData) => {
     try {
-      const response = await fetch(`${API_URL}/users/login`, {
-        method: 'POST',
+      const token = localStorage.getItem('token');
+      const response = await fetch(`${API_URL}/users/update`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify(loginData),
+        body: JSON.stringify(userData),
       });
       const data = await response.json();
-      
-      if (data.token) {
-        localStorage.setItem('token', data.token);
+  
+      if (!response.ok) {
+        const errorMessage = data.message || 'Update failed';
+        throw new Error(errorMessage);
       }
   
-      return data;
+      return data.user; 
     } catch (error) {
-      console.error('Error logging in user:', error);
+      console.error('Error updating user:', error);
       throw error;
     }
-  };
-
-  export const getToken = () => {
-    return localStorage.getItem('token');
   };
 

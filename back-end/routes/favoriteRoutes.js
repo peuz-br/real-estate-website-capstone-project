@@ -1,10 +1,13 @@
+
 const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
+const authenticateToken = require('../auth');
 
-// add to favorite
-router.post('/', (req, res) => {
-  const { user_id, property_id } = req.body;
+// favorite property
+router.post('/', authenticateToken, (req, res) => {
+  const { property_id } = req.body;
+  const user_id = req.user.user_id; // Obter o ID do usuário autenticado
   const sql = 'INSERT INTO Favorites (user_id, property_id) VALUES (?, ?)';
   db.query(sql, [user_id, property_id], (err, result) => {
     if (err) return res.status(500).json({ error: 'Error adding to favorites' });
@@ -12,12 +15,18 @@ router.post('/', (req, res) => {
   });
 });
 
-// Get fav property by some user
-router.get('/user/:user_id', (req, res) => {
-  const { user_id } = req.params;
-  const sql = 'SELECT * FROM Favorites WHERE user_id = ?';
+// check for favorite properties
+router.get('/', authenticateToken, (req, res) => {
+  const user_id = req.user.user_id;
+
+  const sql = `
+    SELECT Properties.* FROM Properties
+    JOIN Favorites ON Properties.property_id = Favorites.property_id
+    WHERE Favorites.user_id = ?
+  `;
+
   db.query(sql, [user_id], (err, results) => {
-    if (err) return res.status(500).json({ error: 'Error fetching favorites' });
+    if (err) return res.status(500).json({ error: 'Error fetching favorite properties' });
     res.json(results);
   });
 });

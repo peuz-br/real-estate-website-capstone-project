@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext, useMemo } from 'react';
 import './HeroSection.css';
 
 import background1 from '../assets/images/background2.jpg';
@@ -6,16 +6,21 @@ import background2 from '../assets/images/background3.jpg';
 import background3 from '../assets/images/background4.jpg';
 
 import { registerUser, loginUser } from '../services/authService';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../services/authContext';
 
 const HeroSection = ({ showLogin, showSignUp, children }) => {
-  const backgrounds = [background1, background2, background3];
+  const backgrounds = useMemo(() => [background1, background2, background3], []);
   const [currentBackground, setCurrentBackground] = useState(0);
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const messages = [
+  const messages = useMemo(() => [
     'We Know Real Estate',
     "We're here to help you make the right choice",
     'Come Find Your Dream Home',
-  ];
+  ], []);
+  
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -26,7 +31,6 @@ const HeroSection = ({ showLogin, showSignUp, children }) => {
 
   const typingTimeoutRef = useRef(null);
 
-
   const [registerData, setRegisterData] = useState({
     name: '',
     email: '',
@@ -34,7 +38,6 @@ const HeroSection = ({ showLogin, showSignUp, children }) => {
     role: '',
   });
   const [registerMessage, setRegisterMessage] = useState('');
-
 
   const [loginData, setLoginData] = useState({
     email: '',
@@ -48,7 +51,7 @@ const HeroSection = ({ showLogin, showSignUp, children }) => {
     }, 6000);
 
     return () => clearInterval(slideChangeInterval);
-  }, []);
+  }, [backgrounds.length]);
 
   useEffect(() => {
     const handleTyping = () => {
@@ -87,7 +90,6 @@ const HeroSection = ({ showLogin, showSignUp, children }) => {
     }
   };
 
-
   const handleRegisterChange = (e) => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
   };
@@ -107,7 +109,6 @@ const HeroSection = ({ showLogin, showSignUp, children }) => {
     }
   };
 
-  // Funções para o formulário de login
   const handleLoginChange = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
@@ -115,17 +116,25 @@ const HeroSection = ({ showLogin, showSignUp, children }) => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     console.log('Login form data being submitted:', loginData);
-
+  
     try {
       const response = await loginUser(loginData);
       console.log('User logged in:', response);
-
-      setLoginMessage('Login successful!');
+  
+      if (response && response.token) {
+        login(response.token);
+        setLoginMessage('Login successful!');
+    
+        navigate('/profile');
+      } else {
+        setLoginMessage('Login failed: Invalid response from server');
+      }
     } catch (error) {
       console.error('Login error:', error);
       setLoginMessage(`Login failed: ${error.message}`);
     }
   };
+  
 
   return (
     <div
@@ -240,6 +249,7 @@ const HeroSection = ({ showLogin, showSignUp, children }) => {
           </div>
         )}
       </div>
+      
     </div>
   );
 };

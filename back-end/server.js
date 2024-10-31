@@ -4,11 +4,14 @@ const cors = require('cors');
 const app = express();
 const mysql = require('mysql2');
 require('dotenv').config();
+const path = require('path');
+
+
 
 
 // middleware
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
 // import routes
 
@@ -23,6 +26,8 @@ app.use('/users', userRoutes);
 app.use('/properties', propertyRoutes); 
 app.use('/inquiries', inquiryRoutes); 
 app.use('/favorites', favoriteRoutes);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 // basic route test
 app.get('/', (req, res) => {

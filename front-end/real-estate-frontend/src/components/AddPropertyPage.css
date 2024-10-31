@@ -1,0 +1,82 @@
+/* src/components/AddPropertyPage.css */
+.add-property-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('../assets/images/background2.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.add-property-container {
+  background-color: rgba(5, 5, 5, 0.8);
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.7s ease-in-out forwards;
+}
+
+.add-property-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.add-property-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-property-container input,
+.add-property-container textarea,
+.add-property-container button {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.add-property-container input,
+.add-property-container textarea {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.add-property-container textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.add-property-container button {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-property-container button:hover {
+  background-color: #555;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

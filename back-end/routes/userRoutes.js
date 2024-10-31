@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const authenticateToken = require('../auth');
 
-//Fetch 
+// Fetch
 router.get('/', (req, res) => {
   const sql = 'SELECT * FROM Users';
   db.query(sql, (err, results) => {
@@ -14,10 +14,9 @@ router.get('/', (req, res) => {
   });
 });
 
-//Register
+// Register
 router.post('/register', async (req, res) => {
   const { name, email, password, role } = req.body;
-
 
   if (!name || !email || !password || !role) {
     return res.status(400).json({ error: 'All fields are required' });
@@ -47,7 +46,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-//  login
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
 
@@ -74,11 +72,21 @@ router.post('/login', (req, res) => {
       { expiresIn: '1h' }
     );
 
-    res.json({ token, message: 'Login successful' });
+    res.json({ 
+      token, 
+      user: { 
+        name: user.name, 
+        email: user.email, 
+        role: user.role 
+      }, 
+      message: 'Login successful' 
+    });
   });
 });
 
-// Delete 
+
+
+// Delete
 router.delete('/:id', authenticateToken, (req, res) => {
   const { id } = req.params;
 
@@ -93,5 +101,43 @@ router.delete('/:id', authenticateToken, (req, res) => {
     res.json({ message: 'User deleted successfully' });
   });
 });
+
+
+// Update user profile
+router.put('/update', authenticateToken, async (req, res) => {
+  try {
+    const userId = req.user.user_id; 
+
+    const { name, email, password } = req.body; 
+
+    const sqlUpdate = 'UPDATE Users SET name = ?, email = ? WHERE user_id = ?';
+    db.query(sqlUpdate, [name, email, userId], (err, result) => {
+      if (err) return res.status(500).json({ error: 'Error updating user' });
+
+      res.json({ message: 'User updated successfully' });
+    });
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).json({ message: 'Failed to update user' });
+  }
+});
+
+router.get('/profile', authenticateToken, (req, res) => {
+  const userId = req.user.user_id;
+
+  const sql = 'SELECT user_id, name, email, role FROM Users WHERE user_id = ?';
+  db.query(sql, [userId], (err, results) => {
+    if (err || results.length === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.status(200).json(results[0]); 
+  });
+});
+
+
+
+
+
 
 module.exports = router;

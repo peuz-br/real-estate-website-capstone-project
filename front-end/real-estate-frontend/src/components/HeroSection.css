@@ -28,19 +28,9 @@
     animation: blink 1s infinite;
   }
   
-  @keyframes blink {
-    0%, 50% {
-      opacity: 1;
-    }
-    51%, 100% {
-      opacity: 0;
-    }
-  }
-  
-/* ... (seu CSS existente) ... */
 
 .form-container {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(5, 5, 5, 0.7);
     padding: 40px;
     border-radius: 8px;
     animation: fadeIn 1s forwards;
@@ -87,14 +77,31 @@
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color: #007bff;
+    background-color: #000000;
     color: white;
     cursor: pointer;
   }
   
   .form-container button:hover {
-    background-color: #0056b3;
+    background-color: #5d5d5d;
   }
+
+  .hero-content button {
+    background-color: black; /* Fundo preto */
+    color: white; /* Texto branco */
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: 2px solid white; /* Borda branca */
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .hero-content button:hover {
+    background-color: white;
+    color: black;
+  }
+  
   
 
   

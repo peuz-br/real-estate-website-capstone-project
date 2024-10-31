@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { loginUser } from '../services/authService';
+import { AuthContext } from '../services/authContext';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
+  const history = useHistory();
+
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
@@ -19,9 +24,11 @@ const Login = () => {
     try {
       const response = await loginUser(loginData);
 
-      if (response.token) {
+      if (response.user) {
         localStorage.setItem('token', response.token);
+        login(response.user); 
         setMessage('Login successful!');
+        history.push('/');
       } else {
         setMessage('Invalid credentials, please try again.');
       }
@@ -32,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    
+
     <div>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
