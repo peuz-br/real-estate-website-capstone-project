@@ -7,7 +7,7 @@ const authenticateToken = require('../auth');
 // favorite property
 router.post('/', authenticateToken, (req, res) => {
   const { property_id } = req.body;
-  const user_id = req.user.user_id; // Obter o ID do usuário autenticado
+  const user_id = req.user.user_id; 
   const sql = 'INSERT INTO Favorites (user_id, property_id) VALUES (?, ?)';
   db.query(sql, [user_id, property_id], (err, result) => {
     if (err) return res.status(500).json({ error: 'Error adding to favorites' });

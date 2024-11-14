@@ -25,13 +25,13 @@ const InteractiveMapPage = () => {
   }, []);
 
   const handleMarkerClick = (property) => {
-    console.log("Selected Property ID:", property.property_id); // Log do ID da propriedade selecionada
+    console.log("Selected Property ID:", property.property_id);
     setSelectedProperty(property);
   };
 
   const handleCheckProperty = () => {
     if (selectedProperty && selectedProperty.property_id) {
-      console.log("Navigating to Property ID:", selectedProperty.property_id); // Confirma o ID antes de navegar
+      console.log("Navigating to Property ID:", selectedProperty.property_id); 
       navigate(`/properties/${selectedProperty.property_id}`);
     } else {
       console.error("Error: property_id is undefined or invalid.");
@@ -57,7 +57,7 @@ const InteractiveMapPage = () => {
               className="property-image"
             />
             <p>{selectedProperty.description}</p>
-            <button onClick={handleCheckProperty}>Check Property</button> {/* Botão atualizado */}
+            <button onClick={handleCheckProperty}>Check Property</button> 
           </div>
         )}
       </div>
