@@ -9,20 +9,22 @@ const Navbar = ({ onLoginClick, onSignUpClick, onAccountSettingsClick }) => {
 
   return (
     <nav className="navbar navbar-custom">
-      <div>
+      <div className="navbar-left">
         <button onClick={() => navigate('/')}>Home</button>
         <button onClick={() => navigate('/properties')}>Properties</button>
         <button onClick={() => navigate('/interactive-map')}>Interactive Map</button>
+      </div>
+      <div className="navbar-right">
         {user ? (
           <div className="user-menu">
-            <span onClick={onAccountSettingsClick}>{user.name}</span>
+            <span onClick={onAccountSettingsClick} className="user-name">{user.name}</span>
             <button onClick={logout}>Logout</button>
-            {user.role === 'agent' || user.role === 'seller' ? (
+            {(user.role === 'agent' || user.role === 'seller') && (
               <button onClick={() => navigate('/add-property')}>Add Your Property</button>
-            ) : null}
+            )}
           </div>
         ) : (
-          <div>
+          <div className="auth-buttons">
             <button onClick={onLoginClick}>Login</button>
             <button onClick={onSignUpClick}>Sign Up</button>
           </div>
