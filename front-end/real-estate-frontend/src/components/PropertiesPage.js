@@ -7,7 +7,7 @@ const PropertiesPage = () => {
   const [properties, setProperties] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [showFavorites, setShowFavorites] = useState(false);
-  const navigate = useNavigate(); // Para navegação
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchProperties = async () => {
