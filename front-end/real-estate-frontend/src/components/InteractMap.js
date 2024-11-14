@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const InteractiveMapPage = () => {
   const [properties, setProperties] = useState([]);
   const [selectedProperty, setSelectedProperty] = useState(null);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   // Fetch properties from the backend
   useEffect(() => {
@@ -31,7 +31,7 @@ const InteractiveMapPage = () => {
 
   const handleCheckProperty = () => {
     if (selectedProperty && selectedProperty.property_id) {
-      console.log("Navigating to Property ID:", selectedProperty.property_id); 
+      console.log("Navigating to Property ID:", selectedProperty.property_id);
       navigate(`/properties/${selectedProperty.property_id}`);
     } else {
       console.error("Error: property_id is undefined or invalid.");
@@ -41,10 +41,10 @@ const InteractiveMapPage = () => {
   return (
     <div className="interactive-map-page">
       <h1>Interactive Map</h1>
-      <div className="map-container">
+      <div className="map-container-dark">
         <Map properties={properties} onMarkerClick={handleMarkerClick} />
         {selectedProperty && (
-          <div className="property-details">
+          <div className="property-details-dark">
             <h2>{selectedProperty.title}</h2>
             <p>{selectedProperty.location}</p>
             <img 
@@ -54,10 +54,10 @@ const InteractiveMapPage = () => {
                   : 'default-placeholder.jpg'
               }
               alt={selectedProperty.title}
-              className="property-image"
+              className="property-image-dark"
             />
             <p>{selectedProperty.description}</p>
-            <button onClick={handleCheckProperty}>Check Property</button> 
+            <button onClick={handleCheckProperty}>Check Property</button>
           </div>
         )}
       </div>

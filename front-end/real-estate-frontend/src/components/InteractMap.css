@@ -1,65 +1,73 @@
 .interactive-map-page {
+  padding-top: 100px;
+  background-color: #1c1c1c;
+  color: white;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background-color: #f0f0f0; 
 }
 
-h1 {
+.interactive-map-page h1 {
+  color: white;
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
-.map-container {
+.map-container-dark {
   display: flex;
   width: 90%;
   max-width: 1200px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.map-container-dark > div {
+  flex: 2;
+  height: 500px;
   border-radius: 8px;
   overflow: hidden;
 }
 
-.map-container > div {
-  flex: 2;
-  height: 500px;
-  border-right: 1px solid #ddd;
-}
-
-.property-details {
+.property-details-dark {
   flex: 1;
   padding: 20px;
-  background-color: #ffffff;
-  max-width: 350px;
+  margin-left: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
+  max-width: 300px;
 }
 
-.property-details h2 {
+.property-details-dark h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
-.property-details img {
+.property-details-dark img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.property-details p {
+.property-details-dark p {
   margin: 5px 0;
 }
 
-.property-details button {
+.property-details-dark button {
   padding: 10px;
-  margin-top: auto;
   border: none;
   border-radius: 4px;
   background-color: #007bff;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.property-details button:hover {
+.property-details-dark button:hover {
   background-color: #0056b3;
 }
