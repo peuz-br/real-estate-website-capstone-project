@@ -30,11 +30,6 @@ Hello, and welcome to my capstone project. In this project, I will be showcasing
 
 - **As a seller/agent, I want to create and manage my property listings so that I can effectively market properties to potential buyers/renters.**
 
-- Users can manage property listings through a dashboard
-
-- **As an admin, I want to approve or reject new property listings to ensure all content on the site meets our standards.**
-
--accept/reject property inquiries from sellers/agents and organize them accordingly.
 
 - **As a user, I want to securely log in and manage my profile so that my personal information is protected.**
 
@@ -54,9 +49,7 @@ As you can see,  we need an integrated solution that brings all of this together
 
 - **Inquires & Contact**: forms for interested buyers/renters to contact the listing agent directly
 
-- **Property Comparison Tool**: Compare properties features side-by-side
 
-- **Admin Dashboard**: approve/reject property listings | manage user accounts | website analytics (basic)
 
 - **Additional Feautes (This is a challenge - might not be added!)**: payment integration | reviews and ratings | internal messaging system | 
 
@@ -73,16 +66,18 @@ As you can see,  we need an integrated solution that brings all of this together
 **Front-end:/** 
 
 - **React/** for building the interactive UI 
-- **Simple CSS/** for styling 
-- **Mapbox/** for the interactive map feature 
-- **Fetch API//** for requests to the backend 
+- **Axios/**  For making HTTP requests to the backend.
+- **Socket.IO-Client/**  For real-time communication in the live chat.
+- **Bootstrap/**  For styling and responsive design.
+- **Mapbox/**  For the interactive map feature.
 
 **Back-end:/** 
 
-- **Node.js/** for API requests 
-- **RESTful APIs/** for the management of property listings, user and inquiries 
-- **MySQL/** to store data 
-- **Simple database-stored user auth/** for first auth and security 
+- **Node.js/**  Backend server.
+- **Express.js/**  Framework for routing and API creation.
+- **Socket.IO/** Real-time communication for the live chat feature.
+- **Multer/**  For handling image uploads to the server.
+- **MySQL/**  Database to store users, properties, favorites, and inquiries.
 
 ## Deployment 
 
@@ -90,7 +85,7 @@ As you can see,  we need an integrated solution that brings all of this together
 
 ## Documentation
 
-
+- [(Screenshots)] (docs/showcase.md)
 - [(ERD, DML, DDL)](docs/ERD.md)
 - [(API Contract)](docs/APIContract.md)
 

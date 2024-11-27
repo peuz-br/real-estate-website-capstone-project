@@ -9,8 +9,9 @@ import PropertiesPage from './components/PropertiesPage';
 import InteractiveMapPage from './components/InteractMap';
 import AccountSettings from './components/AccountSettings';
 import AddPropertyPage from './components/AddPropertyPage';
-import PropertyDetailsPage from './components/PropertyDetailsPage'; // Importe o componente de detalhes da propriedade
+import PropertyDetailsPage from './components/PropertyDetailsPage'; 
 import InquiriesPage from './components/InquiriesPage';
+import ChatBox from './components/ChatBox'; 
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -64,6 +65,7 @@ function App() {
         <Route path="/properties/:id" element={<PropertyDetailsPage />} />
         <Route path="/inquiries" element={<InquiriesPage />} />
       </Routes>
+      <ChatBox />
       <Footer />
     </Router>
   );
