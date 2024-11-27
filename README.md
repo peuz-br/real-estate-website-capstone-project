@@ -85,7 +85,7 @@ As you can see,  we need an integrated solution that brings all of this together
 
 ## Documentation
 
-- [(Screenshots)] (docs/showcase.md)
+- [(Screenshots)](docs/showcase.md)
 - [(ERD, DML, DDL)](docs/ERD.md)
 - [(API Contract)](docs/APIContract.md)
 
